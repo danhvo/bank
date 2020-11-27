@@ -7,5 +7,5 @@ import com.danh.assignment.bank.dto.VoucherDTO;
 
 public interface VoucherService {
 	List<String> getVouchersByPhoneNumber(String phoneNumber);
-	ResponseDTO<VoucherDTO> getVoucherCode(String phoneNumber);
+	ResponseDTO<VoucherDTO> getVoucherCode(String phoneNumber, boolean slow, boolean error);
 }

@@ -2,7 +2,6 @@ package com.danh.assignment.bank.service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,24 +22,8 @@ public class VoucherServiceImpl implements VoucherService {
 	@Autowired
 	private VoucherClient voucherClient;
 	
-	//@Autowired
-	//private RestTemplate restTemplate;
-	
-	private Random random = new Random();
-	
-	/*@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public ResponseDTO<Object> getVoucherCode() {
-		boolean slow = random.nextBoolean();
-		String fooResourceUrl = "http://localhost:8081/third-party/api/v1/code?slow=";
-		ResponseEntity<ResponseDTO> response = restTemplate.getForEntity(fooResourceUrl + slow, ResponseDTO.class);
-		return response.getBody();
-	}*/
-	
-	@Override
-	public ResponseDTO<VoucherDTO> getVoucherCode(String phoneNumber) {
-		boolean slow = random.nextBoolean();
-		//boolean error = random.nextBoolean();
+	public ResponseDTO<VoucherDTO> getVoucherCode(String phoneNumber, boolean slow, boolean error) {
 		ResponseDTO<VoucherDTO> response = voucherClient.getVoucherCode(slow, false);
 		
 		VoucherDTO voucher = response.getData();

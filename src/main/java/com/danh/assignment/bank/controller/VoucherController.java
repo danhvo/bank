@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.danh.assignment.bank.common.StatusConstants;
@@ -34,8 +35,9 @@ public class VoucherController {
 	}
 	
 	@GetMapping(produces = { "application/json" }, path = "vouchers/{phoneNumber}/code")
-	public ResponseDTO<VoucherDTO> getVoucherCode(@PathVariable String phoneNumber) {
+	public ResponseDTO<VoucherDTO> getVoucherCode(@PathVariable String phoneNumber,  @RequestParam(value = "slow", required = true) boolean slow,
+			@RequestParam(value = "error", required = true) boolean error) {
 		log.info("Start getting Voucher Codes!");
-		return voucherService.getVoucherCode(phoneNumber);
+		return voucherService.getVoucherCode(phoneNumber, slow, error);
 	}
 }
