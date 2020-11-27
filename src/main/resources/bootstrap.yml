@@ -13,3 +13,4 @@ spring:
         healthCheckPath: /my-health-check
         healthCheckInterval: 20s
         enabled: true
+        instanceId: ${spring.application.name}:${random.value}
