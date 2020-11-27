@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.danh.assignment.bank.common.StatusConstants;
 import com.danh.assignment.bank.dto.ResponseDTO;
+import com.danh.assignment.bank.dto.VoucherDTO;
 import com.danh.assignment.bank.service.VoucherService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,9 +33,9 @@ public class VoucherController {
 		return ResponseDTO.builder().data(result).code(HttpStatus.OK.value()).status(StatusConstants.STATUS_SUCCESS).build();
 	}
 	
-	@GetMapping(produces = { "application/json" }, path = "vouchers/code")
-	public ResponseDTO<Object> getVoucherCode() {
+	@GetMapping(produces = { "application/json" }, path = "vouchers/{phoneNumber}/code")
+	public ResponseDTO<VoucherDTO> getVoucherCode(@PathVariable String phoneNumber) {
 		log.info("Start getting Voucher Codes!");
-		return voucherService.getVoucherCode();
+		return voucherService.getVoucherCode(phoneNumber);
 	}
 }

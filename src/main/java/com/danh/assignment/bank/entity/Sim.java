@@ -35,14 +35,13 @@ public class Sim {
 	
 	@Column(unique = true)
 	private String number;
-	private String type;
 	
 	@OneToMany(mappedBy = "sim", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
 	@ToString.Exclude
 	private List<Voucher> vouchers;
 	
-	public void setVoucher(Voucher voucher) {
+	public void addVoucher(Voucher voucher) {
 		if (this.vouchers == null) {
 			this.vouchers = new ArrayList<>();
 		}

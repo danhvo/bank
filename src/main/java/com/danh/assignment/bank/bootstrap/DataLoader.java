@@ -19,14 +19,14 @@ public class DataLoader implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("Start loading data...");
-		Sim viettel = Sim.builder().type("C90").number("0389555555").build();
-		viettel.setVoucher(Voucher.builder().code("1234").money(50000L).sim(viettel).build());
+		Sim viettel = Sim.builder().number("0389555555").build();
+		viettel.addVoucher(Voucher.builder().code("1234").sim(viettel).build());
 		simRepository.save(viettel);
-		Sim mobifone = Sim.builder().type("4G").number("0935717171").build();
-		mobifone.setVoucher(Voucher.builder().code("2345").money(100000L).sim(mobifone).build());
+		Sim mobifone = Sim.builder().number("0935717171").build();
+		mobifone.addVoucher(Voucher.builder().code("2345").sim(mobifone).build());
 		simRepository.save(mobifone);
-		Sim vinaphone = Sim.builder().type("D500").number("0886008346").build();
-		vinaphone.setVoucher(Voucher.builder().code("6789").money(200000L).sim(vinaphone).build());
+		Sim vinaphone = Sim.builder().number("0886008346").build();
+		vinaphone.addVoucher(Voucher.builder().code("6789").sim(vinaphone).build());
 		simRepository.save(vinaphone);
 
 		System.out.println("\nfindAll()");

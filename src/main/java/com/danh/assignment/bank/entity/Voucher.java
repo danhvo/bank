@@ -25,7 +25,6 @@ public class Voucher {
     private Long id;
     
     private String code;
-    private Long money;
     
     @ManyToOne
     @ToString.Exclude
