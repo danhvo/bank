@@ -17,6 +17,9 @@ public class ResponseDTO<T> {
 
 	@JsonProperty("code")
 	private int code;
+	
+	@JsonProperty("host")
+	private String host;
 
 	@JsonProperty("data")
 	private T data;
