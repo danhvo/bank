@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.danh.assignment.bank.common.StatusConstants;
@@ -35,6 +36,7 @@ public class VoucherController {
 		return ResponseDTO.builder().data(result).code(HttpStatus.OK.value()).status(StatusConstants.STATUS_SUCCESS).build();
 	}
 	
+	@ResponseStatus( HttpStatus.CREATED )
 	@PostMapping(produces = { "application/json" }, path = "vouchers/{phoneNumber}/code")
 	public ResponseDTO<VoucherDTO> getVoucherCode(@PathVariable String phoneNumber,  @RequestParam(value = "slow", required = true) boolean slow,
 			@RequestParam(value = "error", required = true) boolean error) {
