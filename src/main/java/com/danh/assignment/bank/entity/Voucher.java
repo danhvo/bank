@@ -1,33 +1,26 @@
 package com.danh.assignment.bank.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Data
+@Setter
+@Getter
 @AllArgsConstructor 
 @NoArgsConstructor 
 @ToString
 @Builder
-public class Voucher {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
+public class Voucher extends BaseEntity{
     private String code;
     
     @ManyToOne
     @ToString.Exclude
     private Sim sim;
-
 }

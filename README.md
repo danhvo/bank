@@ -3,6 +3,12 @@
 This service provide function of getting a new voucher code as well as seeing all of purchased voucher code
 ### Installation
 
+MySQL server version: 8.0.21
+
+Consul version: 1.8.4
+
+Haproxy version: 2.0.13
+
 Configure address of Consul server and URL of MySQL schema in file application.properties.
 
 Configure third party API url in application.properties file at ```voucher-client.url``` or put this property onto Consul.
