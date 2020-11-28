@@ -43,7 +43,7 @@ curl --request POST {hostname_of_haproxy}/bank/api/v1/vouchers/{phoneNumber}/cod
 1. slow: if this's true, a request will take a long time to receive the response.
 2. error: if this's true, a request will be failed, otherwise it will be successful.
 
-Example: curl --request POST http://192.168.71.129/bank/api/v1/vouchers/0389555555/code?slow=false&error=false
+Example: curl --request POST "http://192.168.71.129/bank/api/v1/vouchers/0389555555/code?slow=false&error=false"
 
 ##### Seeing all purchased voucher codes
 curl --request GET {hostname_of_haproxy}/bank/api/v1/vouchers/{phoneNumber}/codes
